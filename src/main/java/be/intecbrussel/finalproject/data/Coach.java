@@ -1,26 +1,28 @@
 package be.intecbrussel.finalproject.data;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import java.util.List;
+import org.springframework.transaction.annotation.Transactional;
+
+import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Transactional
 public class Coach {
     @Id
     private String email;
     @Column(nullable = false)
     private String password;
+    @OneToOne
+    private PersonInfo personInfo;
     @OneToMany(mappedBy = "coach")
-    private List<Session> sessions;
+    private Set<Session> sessions;
     private String imageLocation;
 
 
     public Coach() {
     }
 
-    public Coach(String email, String password, List<Session> sessions, String imageLocation) {
+    public Coach(String email, String password, Set<Session> sessions, String imageLocation) {
         this.email = email;
         this.password = password;
         this.sessions = sessions;
@@ -42,12 +44,11 @@ public class Coach {
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public List<Session> getSessions() {
+    public Set<Session> getSessions() {
         return sessions;
     }
 
-    public void setSessions(List<Session> sessions) {
+    public void setSessions(Set<Session> sessions) {
         this.sessions = sessions;
     }
 
@@ -58,4 +59,5 @@ public class Coach {
     public void setImageLocation(String imageLocation) {
         this.imageLocation = imageLocation;
     }
+
 }

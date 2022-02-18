@@ -6,8 +6,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface OwnerService {
 
+
     void CreateOwner(Owner owner);
-    Owner getOwnerByemailAndpassword(String email, String password);
-
-
 }

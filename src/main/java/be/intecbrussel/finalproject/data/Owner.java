@@ -1,8 +1,6 @@
 package be.intecbrussel.finalproject.data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
@@ -10,8 +8,14 @@ public class Owner {
     @Id
     private String email;
     private String password;
+    @OneToOne
+    private PersonInfo personInfo;
     @OneToMany
     private List<Coach> coaches;
+
+    public PersonInfo getPersonInfo() {
+        return personInfo;
+    }
 
 
     public Owner(){
@@ -40,5 +44,9 @@ public class Owner {
 
     public void setCoaches(List<Coach> coaches) {
         this.coaches = coaches;
+    }
+
+    public void setPersonInfo(PersonInfo personInfo) {
+        this.personInfo = personInfo;
     }
 }

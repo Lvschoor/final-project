@@ -2,8 +2,7 @@ package be.intecbrussel.finalproject.data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 @Entity
 public class Session {
@@ -18,10 +17,10 @@ public class Session {
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
     private  SessionType sessionType;
-    @OneToMany
-    private List<Member> participants;
     @ManyToOne
     private Coach coach;
+    @ManyToMany
+    private Set<Member> members;
 
     public Session() {
     }
@@ -90,14 +89,6 @@ public class Session {
         this.sessionType = sessionType;
     }
 
-    public List<Member> getParticipants() {
-        return participants;
-    }
-
-    public void setParticipants(List<Member> participants) {
-        this.participants = participants;
-    }
-
     public Coach getCoach() {
         return coach;
     }
@@ -105,4 +96,14 @@ public class Session {
     public void setCoach(Coach coach) {
         this.coach = coach;
     }
+
+    public Set<Member> getMembers() {
+        return members;
+    }
+
+    public void setMembers(Set<Member> members) {
+        this.members = members;
+    }
+
+
 }

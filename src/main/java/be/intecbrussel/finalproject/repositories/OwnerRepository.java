@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface OwnerRepository extends JpaRepository<Owner,String> {
 
-    Owner findByemailAndpassword(String email, String password);
+
 }

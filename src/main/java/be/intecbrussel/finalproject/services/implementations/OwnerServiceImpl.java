@@ -11,7 +11,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     private OwnerRepository ownerRepository;
 
-    @Autowired
+    //@Autowired
     public OwnerServiceImpl(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
     }
@@ -20,11 +20,7 @@ public class OwnerServiceImpl implements OwnerService {
     public void CreateOwner(Owner owner) {
         ownerRepository.save(owner);
     }
-// extra methode created in the OwnerRepository interface
-    @Override
-    public Owner getOwnerByemailAndpassword(String email, String password) {
-        return ownerRepository.findByemailAndpassword(email, password);
-    }
+
 
 
 }

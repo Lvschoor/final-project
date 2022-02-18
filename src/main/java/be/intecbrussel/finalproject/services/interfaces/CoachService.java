@@ -10,4 +10,6 @@ public interface CoachService {
 
     List<Coach> getAllCoaches();
     void addCoach(Coach coach);
+    public Coach getCoach (String email);
+
 }

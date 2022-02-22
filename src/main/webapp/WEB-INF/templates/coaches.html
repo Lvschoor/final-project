@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
             <div class="container flex justify-center mx-auto">
 
                 <div class="w-full  md:w-1/5">
-                    <img src="../../../resources/static/images/logo.png" alt="logo">
+                    <img src="../../../resources/static/images/logo.png" alt="logo" th:src="@{/images/logo.png}">
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
     <section class="w-full px-8 py-8 bg-gray-100 xl:px-8">
         <div class="container flex justify-center mx-auto pb-3">
             <h5 class="font-medium leading-tight text-xl mt-0 mb-2 text-blue-800">Coaches</h5>
-            <a href="./addcoach.html" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full ml-4">Add</a>
+            <a href="/addcoach" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full ml-4">Add</a>
             <p class="text-center text-gray-900 font-bold"> </p>
         </div>
         <div class="container flex justify-center mx-auto">
@@ -51,27 +51,29 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-300">
+                            <span th:each="coach:${coaches}">
                                 <tr class="whitespace-nowrap">
-                                    <td class="px-6 py-4 text-sm text-gray-500">
-                                        Fred
-                                    </td>
                                     <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-900">
-                                            Flintstone
+                                         <div class="text-sm text-gray-500" th:text="*{coach.personInfo.firstName}">
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-500">fred@flintstone.be</div>
+                                        <div class="text-sm text-gray-500" th:text="*{coach.personInfo.lastName}">
+                                        </div>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <div class="text-sm text-gray-500" th:text="*{coach.email}"></div>
                                     </td>
 
 
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="px-4 py-1 text-sm text-red-500 bg-red-200 rounded-full">Delete</a>
+                                    <form method = "post" th:action="@{/coachdelete}" >
+                                        <input type="hidden" name="email" th:value="${coach.email}">
+                                         <button type="submit" class="px-4 py-1 text-sm text-red-500 bg-red-200 rounded-full">Delete</button>
+                                    </form>
                                     </td>
                                 </tr>
-
-
+                            </span>
                             </tbody>
                         </table>
                     </div>

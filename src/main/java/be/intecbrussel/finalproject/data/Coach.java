@@ -1,18 +1,17 @@
 package be.intecbrussel.finalproject.data;
 
-import org.springframework.transaction.annotation.Transactional;
+
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Transactional
 public class Coach {
     @Id
     private String email;
     @Column(nullable = false)
     private String password;
-    @OneToOne
+    @OneToOne (cascade = {CascadeType.ALL})
     private PersonInfo personInfo;
     @OneToMany(mappedBy = "coach")
     private Set<Session> sessions;
@@ -22,9 +21,10 @@ public class Coach {
     public Coach() {
     }
 
-    public Coach(String email, String password, Set<Session> sessions, String imageLocation) {
+    public Coach(String email, String password, PersonInfo personInfo, Set<Session> sessions, String imageLocation) {
         this.email = email;
         this.password = password;
+        this.personInfo = personInfo;
         this.sessions = sessions;
         this.imageLocation = imageLocation;
     }
@@ -50,6 +50,14 @@ public class Coach {
 
     public void setSessions(Set<Session> sessions) {
         this.sessions = sessions;
+    }
+
+    public PersonInfo getPersonInfo() {
+        return personInfo;
+    }
+
+    public void setPersonInfo(PersonInfo personInfo) {
+        this.personInfo = personInfo;
     }
 
     public String getImageLocation() {

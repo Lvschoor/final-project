@@ -11,7 +11,7 @@ public class OwnerServiceImpl implements OwnerService {
 
     private OwnerRepository ownerRepository;
 
-    //@Autowired
+    @Autowired
     public OwnerServiceImpl(OwnerRepository ownerRepository) {
         this.ownerRepository = ownerRepository;
     }

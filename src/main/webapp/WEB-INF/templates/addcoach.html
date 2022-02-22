@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -26,7 +26,7 @@
             <div class="container flex justify-center mx-auto">
 
                 <div class="w-full  md:w-1/5">
-                    <img src="../../../resources/static/images/logo.png" alt="logo">
+                    <img src="../../../resources/static/images/logo.png" alt="logo" th:src="@{/images/logo.png}">
                 </div>
             </div>
         </div>
@@ -34,14 +34,14 @@
 
     <!-- Section 1 -->
     <section class="w-full px-8 py-8 bg-gray-100 xl:px-8">
+
         <div class="container flex justify-center mx-auto pb-3">
             <h5 class="font-medium leading-tight text-xl mt-0 mb-2 text-blue-800">Add new coach</h5>
         </div>
+        <form method = "post" ACTION="#" th:action = "@{/addcoach2}">
         <div class="container flex justify-center mx-auto">
             <div class="flex flex-col">
                 <div class="w-full">
-
-                    
                         <div class="flex justify-center">
                             <div class="mb-3 xl:w-96">
                                 <label for="exampleFormControlInput1"
@@ -62,7 +62,7 @@
                                   ease-in-out
                                   m-0
                                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                                " id="exampleFormControlInput1" placeholder="First name" />
+                                " id="exampleFormControlInput1" placeholder="First name" th:field="${personInfo.firstName}"/>
                             </div>
                         </div>
                         <div class="flex justify-center">
@@ -85,7 +85,7 @@
                                   ease-in-out
                                   m-0
                                   focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none
-                                " id="exampleFormControlInput1" placeholder="Last name" />
+                                " id="exampleFormControlInput1" placeholder="Last name" th:field="${personInfo.lastName}"/>
                             </div>
                         </div>
                         <div class="form-group mb-2">
@@ -106,7 +106,7 @@
                               ease-in-out
                               m-0
                               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" th:field="${coach.email}"/>
                         </div>
                         <div class="form-group mb-2">
                             <label for="exampleInputPassword1"
@@ -125,11 +125,11 @@
                               ease-in-out
                               m-0
                               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                id="exampleInputPassword1" placeholder="Password">
+                                id="exampleInputPassword1" placeholder="Password" th:field="${coach.password}"/>
                         </div>
                         <div class="flex justify-center">
                             <div class="mb-3 w-96">
-                              <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Add photo (recommended </label>
+                              <label for="formFile" class="form-label inline-block mb-2 text-gray-700">Add photo (recommended) </label>
                               <input class="form-control
                               block
                               w-full
@@ -150,15 +150,17 @@
                    
                 </div>
                 <div class="container flex py-4 justify-center mx-auto pb-3">
-                    <a href="#" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full ml-4">Add
-                        session</a>
+                    <button type="submit" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full ml-4">Add coach
+                    </button>
+
+
 
                     <a href="javascript:history.back()"
                         class="px-4 py-1 text-sm text-green-600 bg-green-200 rounded-full ml-4">Back</a>
                 </div>
             </div>
         </div>
-        </div>
+        </form>
     </section>
 
     <!-- Section 2 -->

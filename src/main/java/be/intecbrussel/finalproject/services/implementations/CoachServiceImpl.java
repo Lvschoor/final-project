@@ -26,9 +26,13 @@ public class CoachServiceImpl implements CoachService {
     public void addCoach(Coach coach) {
         coachRepository.save(coach);
     }
+
     @Override
     public Coach getCoach (String email) {
         return coachRepository.getById(email);
     }
+
+    @Override
+    public void deleteCoach(Coach coach) {coachRepository.delete(coach);}
 
 }

@@ -24,11 +24,7 @@ public class CoachDetailControllerImpl implements CoachDetailsController {
     @GetMapping("coachdetails")
     public String showCoachDetail(Model model) {
         Coach coach = coachService.getCoach("coach@email.be");
-        //System.out.println(coach.getEmail());
         model.addAttribute("coach", coach);
-        //System.out.println(coach.getPassword());
-        
-        //model.addAttribute("password", coach.getPassword());
         return "coachdetails";
     }
 }

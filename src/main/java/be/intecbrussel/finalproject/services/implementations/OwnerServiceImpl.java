@@ -21,6 +21,11 @@ public class OwnerServiceImpl implements OwnerService {
         ownerRepository.save(owner);
     }
 
+    @Override
+    public Owner GetOwner() {
+        ;
+        return ownerRepository.getById("owner@jgs.com");
+    }
 
 
 }

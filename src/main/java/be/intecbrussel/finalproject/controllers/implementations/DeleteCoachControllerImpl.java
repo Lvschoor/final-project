@@ -18,10 +18,7 @@ public class DeleteCoachControllerImpl implements DeleteCoachController {
     @Override
     @PostMapping("coachdelete")
     public String deleteCoach(@ModelAttribute(value = "emailcoach") Coach coach) {
-        System.out.println(coach.getEmail());
         Coach coachToBeDeleted = coachService.getCoach(coach.getEmail());
-        System.out.println("Testing");
-        System.out.println(coachToBeDeleted.getPersonInfo().getId());
         coachService.deleteCoach(coachToBeDeleted);
         return "redirect:coaches";
     }

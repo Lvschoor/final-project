@@ -8,4 +8,5 @@ public interface OwnerService {
 
 
     void CreateOwner(Owner owner);
+    Owner GetOwner();
 }

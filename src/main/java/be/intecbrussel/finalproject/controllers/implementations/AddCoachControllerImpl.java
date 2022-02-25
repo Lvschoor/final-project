@@ -32,12 +32,8 @@ public class AddCoachControllerImpl implements AddCoachController {
     @PostMapping("addcoach2")
     public String addCoach(@ModelAttribute("coach") Coach coachReceived, @ModelAttribute("personInfo") PersonInfo personInfoReceived,HttpSession httpSession) {
 
-/*        System.out.println(personInfoReceived.getFirstName());
-        System.out.println(personInfoReceived.getLastName());
-        System.out.println(coachReceived.getEmail());
-        System.out.println(coachReceived.getPassword());*/
         coachReceived.setPersonInfo(personInfoReceived);
-        //System.out.println(coachReceived.getPersonInfo().getFirstName());
+
         coachService.addCoach(coachReceived);
         return "redirect:coaches";
     }

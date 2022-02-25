@@ -48,8 +48,8 @@
                                     <th class="px-6 py-2 text-base bg-gray-50 text-gray-400 text-left">
                                         Last name
                                     </th>
-                                    <td class="px-6 py-2 text-base bg-white text-gray-900">
-                                            Doe
+                                    <td class="px-6 py-2 text-base bg-white text-gray-900" th:text="${coach.personInfo.lastName}">
+
                                     </td>
                                 </tr>
                                 <tr>
@@ -72,8 +72,10 @@
                         </table>
                     </div>
                     <div class="container flex py-4 justify-center mx-auto pb-3">
-                        <a href="javascript:history.back()" class="px-4 py-1 text-sm text-green-600 bg-green-200 rounded-full ml-4">Back</a>
+                        <a href="/updatecoachdetails" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">Change details</a>
+                        <a href="/coachdash" class="px-4 py-1 text-sm text-green-600 bg-green-200 rounded-full ml-4">Back</a>
                     </div>
+
                 </div>
             </div>
         </div>

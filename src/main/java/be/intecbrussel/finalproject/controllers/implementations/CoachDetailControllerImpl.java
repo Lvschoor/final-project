@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpSession;
 
 
 @Controller
@@ -22,8 +23,9 @@ public class CoachDetailControllerImpl implements CoachDetailsController {
 
     @Override
     @GetMapping("coachdetails")
-    public String showCoachDetail(Model model) {
-        Coach coach = coachService.getCoach("coach@email.be");
+    public String showCoachDetail(Model model, HttpSession httpSession) {
+        String mail = httpSession.getAttribute("user").toString();
+        Coach coach = coachService.getCoach(mail);
         model.addAttribute("coach", coach);
         return "coachdetails";
     }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
             <div class="container flex justify-center mx-auto">
 
                 <div class="w-full  md:w-1/5">
-                    <img src="../../../resources/static/images/logo.png" alt="logo" >
+                    <img src="../../../resources/static/images/logo.png" alt="logo" th:src="@{/images/logo.png}">
                 </div>
             </div>
         </div>
@@ -55,34 +55,43 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-300">
+                            <span th:each="member:${members}">
                                 <tr class="whitespace-nowrap">
-                                    <td class="px-6 py-4 text-sm text-gray-900">
-                                        John
-                                    </td>
                                     <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-900">
-                                            Doe
+                                         <div class="text-sm text-gray-500" >
+                                             th:text="*{member.personInfo.firstName}"
                                         </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <div class="text-sm text-gray-900">jd@hismail.com</div>
+                                        <div class="text-sm text-gray-500" >
+                                            th:text="*{member.personInfo.lastName}"
+                                        </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="px-4 py-1 text-sm text-green-500 bg-green-200 rounded-full">Details</a>
+                                        <div class="text-sm text-gray-500" th:text="*{member.email}">
+                                        </div>
                                     </td>
                                     <td class="px-6 py-4">
-                                        <a href="#"
-                                            class="px-4 py-1 text-sm text-red-500 bg-red-200 rounded-full">Delete</a>
+                                    <form method = "post" th:action="@{/memberdetails}" >
+                                        <input type="hidden" name="email" th:value="${member.email}">
+
+                                        <button type="submit" class="px-4 py-1 text-sm text-red-500 bg-red-200 rounded-full">Details</button>
+                                    </form>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                    <form method = "post" th:action="@{/memberdelete}" >
+                                        <input type="hidden" name="email" th:value="${member.email}">
+                                        <button type="submit" class="px-4 py-1 text-sm text-red-500 bg-red-200 rounded-full">Delete</button>
+                                    </form>
                                     </td>
                                 </tr>
 
-
+                            </span>
                             </tbody>
                         </table>
                     </div>
                     <div class="container flex py-4 justify-center mx-auto pb-3">
-                        <a href="javascript:history.back()" class="px-4 py-1 text-sm text-green-600 bg-green-200 rounded-full ml-4">Back</a>
+                        <a href="/ownerdash" class="px-4 py-1 text-sm text-green-600 bg-green-200 rounded-full ml-4">Back</a>
                     </div>
                 </div>
             </div>

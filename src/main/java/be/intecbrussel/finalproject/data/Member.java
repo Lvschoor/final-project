@@ -18,10 +18,10 @@ public class Member {
     public Member() {
     }
 
-    public Member(String email, String password, List<Session> sessions) {
+    public Member(String email, String password) {
         this.email = email;
         this.password = password;
-        this.sessions = sessions;
+;
     }
 
     public String getEmail() {

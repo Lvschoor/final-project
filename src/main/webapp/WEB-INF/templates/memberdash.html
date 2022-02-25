@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8" />
@@ -17,7 +17,7 @@
             <div class="container flex justify-center mx-auto">
 
                 <div class="w-full  md:w-1/5">
-                    <img src="../../../resources/static/images/logo.png" alt="logo" >
+                    <img src="../../../resources/static/images/logo.png" alt="logo" th:src="@{/images/logo.png}">
                 </div>
             </div>
         </div>
@@ -38,10 +38,12 @@
                     <div class=" py-4 justify-center mx-auto pb-3">
                         <a href="./membersessions.html" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">My sessions</a>
                     </div>
-                    <div class="py-4 justify-center mx-auto pb-3">
-                        <a href="./login.html"
-                            class="px-4 py-1 text-sm text-white bg-red-800 rounded-full ml-4">Logout</a>
-                    </div>
+                <div class="py-4 justify-center mx-auto pb-3">
+                    <form th:action="@{/login}">
+                        <input type="hidden" name="logout" th:value="true">
+                        <button type="submit" class="px-4 py-1 text-sm text-white bg-red-800 rounded-full ml-4">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

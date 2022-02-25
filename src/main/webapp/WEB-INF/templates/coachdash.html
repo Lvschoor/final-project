@@ -33,15 +33,17 @@
 
             <div class="inline-flex">
                     <div class="py-4 justify-center mx-auto pb-3">
-                        <a href="./coachdetails.html" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">My details</a>
+                        <a href="/coachdetails" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">My details</a>
                     </div>
                     <div class=" py-4 justify-center mx-auto pb-3">
-                        <a href="./sessions.html" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">My sessions</a>
+                        <a href="/sessions" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">My sessions</a>
                     </div>
-                    <div class="py-4 justify-center mx-auto pb-3">
-                        <a href="./login.html"
-                            class="px-4 py-1 text-sm text-white bg-red-800 rounded-full ml-4">Logout</a>
-                    </div>
+                <div class="py-4 justify-center mx-auto pb-3">
+                    <form th:action="@{/login}">
+                        <input type="hidden" name="logout" th:value="true">
+                        <button type="submit" class="px-4 py-1 text-sm text-white bg-red-800 rounded-full ml-4">Logout</button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>

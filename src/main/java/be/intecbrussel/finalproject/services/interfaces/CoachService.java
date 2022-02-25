@@ -12,5 +12,6 @@ public interface CoachService {
     void addCoach(Coach coach);
     Coach getCoach (String email);
     void deleteCoach(Coach coach);
+    void updateCoach(Coach coach);
 
 }

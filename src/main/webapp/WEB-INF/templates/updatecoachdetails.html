@@ -36,6 +36,7 @@
                             <div class="mb-3 xl:w-96">
                                 <label for="exampleFormControlInput1"
                                        class="form-label inline-block mb-2 text-gray-700">First name</label>
+                                <input type="hidden" th:field="${personInfo.id}">
                                 <input type="text" class="
                                   form-control
                                   block
@@ -101,7 +102,7 @@
                         <div class="form-group mb-2">
                             <label for="exampleInputPassword1"
                                    class="form-label inline-block mb-2 text-gray-700">Password</label>
-                            <input type="password" class="form-control block
+                            <input type="text" class="form-control block
                               w-full
                               px-3
                               py-1.5
@@ -115,7 +116,7 @@
                               ease-in-out
                               m-0
                               focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                   id="exampleInputPassword1"th:placeholder="${coach.password}" th:field="${coach.password}"/>
+                                   id="exampleInputPassword1" th:placeholder="${coach.password}" th:field="${coach.password}"/>
                         </div>
                         <div class="flex justify-center">
                             <div class="mb-3 w-96">
@@ -140,7 +141,8 @@
 
                     </div>
                     <div class="container flex py-4 justify-center mx-auto pb-3">
-                        <a href="/coachdetails" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">Confirm changes</a>
+                        <button type="submit" class="px-4 py-1 text-sm text-blue-600 bg-blue-200 rounded-full ml-4">Save changes</button>
+                        <a href="/coachdetails" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">Cancel changes</a>
                     </div>
                 </div>
             </div>

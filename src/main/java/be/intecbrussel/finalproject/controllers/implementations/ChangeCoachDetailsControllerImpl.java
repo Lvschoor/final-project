@@ -34,8 +34,9 @@ public class ChangeCoachDetailsControllerImpl implements ChangeCoachDetailsContr
     @Override
     @PostMapping("updatecoach")
     public String changeDetailsCoach(Coach coachReceived, PersonInfo personInfoReceived, HttpSession httpSession) {
-        coachReceived.setPersonInfo(personInfoReceived);
-        coachService.updateCoach(coachReceived);
+        Coach coachToUpdate = coachService.getCoach(coachReceived.getEmail());
+        coachToUpdate.setPersonInfo(personInfoReceived);
+        coachService.updateCoach(coachToUpdate);
         return "redirect:coachdetails";
     }
 

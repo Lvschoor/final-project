@@ -40,16 +40,16 @@
                                     <th class="px-6 py-2 text-xs text-gray-500 text-left">
                                        First name
                                     </th>
-                                    <td class="px-6 py-2 text-sm text-gray-900">
-                                        John
+                                    <td class="px-6 py-2 text-sm text-gray-900" th:text="${member.personInfo.firstName}">
+
                                     </td>
                                 </tr>
                                 <tr>
                                     <th class="px-6 py-2 text-xs text-gray-500 text-left">
                                         Last name
                                     </th>
-                                    <td class="px-6 py-2 text-sm bg-white text-gray-900">
-                                            Doe
+                                    <td class="px-6 py-2 text-sm bg-white text-gray-900" th:text="${member.personInfo.lastName}">
+
                                     </td>
                                 </tr>  
                                 <tr>
@@ -57,14 +57,23 @@
                                         Email
                                     </th>
                                     <td class="px-6 py-2 text-sm bg-white text-gray-900">
-                                        jd@hismail.com
+                                        <p th:text="${member.email}"></p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="px-6 py-2 text-base bg-gray-50 text-gray-400 text-left">
+                                        Password
+                                    </th>
+                                    <td class="px-6 py-2 text-base bg-white text-gray-900">
+                                        <p th:text="${member.password}"></p>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                     <div class="container flex py-4 justify-center mx-auto pb-3">
-                        <a href="javascript:history.back()" class="px-4 py-1 text-sm text-green-600 bg-green-200 rounded-full ml-4">Back</a>
+                        <a href="/updatememberdetails" class="px-4 py-1 text-sm text-white bg-blue-800 rounded-full ml-4">Change details</a>
+                        <a href="/memberdash" class="px-4 py-1 text-sm text-green-600 bg-green-200 rounded-full ml-4">Back</a>
                     </div>
                 </div>
             </div>
